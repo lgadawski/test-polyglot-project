@@ -11,4 +11,6 @@
 (defn main [& args]
   (println "Hello cruel world from clojure extra file!")
   (println (str "(aplusb 100 200): " (aplusb 100 200)))
-  (println (str "(aplusb 200 200): " (aplusb 200 200))))
+  (println (str "(aplusb 200 200): " (aplusb 200 200)))
+  (println "End of testing.")
+  (println "**********"))
