@@ -1,6 +1,6 @@
-(ns drugi.lukasz-test
+(ns drugi.dalszy.lukasz-test
  (:use clojure.test)
- (:use pierwszy.lukasz))
+ (:use pierwszy.kolejny.lukasz))
 
 (run-all-tests)
 
