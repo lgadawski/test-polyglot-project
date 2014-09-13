@@ -1,43 +1,58 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.gadawski.maven.test_project</groupId>
-	<artifactId>test-polyglot-project</artifactId>
-	<version>1.0-SNAPSHOT</version>
-	<packaging>jar</packaging>
+    <groupId>com.gadawski.maven.test_project</groupId>
+    <artifactId>test-polyglot-project</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-	<name>test-polyglot-project</name>
-	<url>http://maven.apache.org</url>
+    <name>test-polyglot-project</name>
+    <url>http://maven.apache.org</url>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.clojure</groupId>
-			<artifactId>clojure</artifactId>
-			<version>1.6.0</version>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.clojure</groupId>
+            <artifactId>clojure</artifactId>
+            <version>1.6.0</version>
+        </dependency>
+    </dependencies>
 
-	<build>
-		<resources>
-			<!-- brak ponizszej konfiguracji powoduje IAE exception poniewaz nie moga 
-				zostac odnalezione przekazane w parametrze zrodla -->
-			<resource>
-				<directory>src/main/clojure</directory>
-			</resource>
-			<resource>
-				<directory>src/test/clojure</directory>
-			</resource>
-		</resources>
-	</build>
+    <build>
+        <resources>
+            <!-- brak ponizszej konfiguracji powoduje IAE exception poniewaz 
+                nie moga zostac odnalezione przekazane w parametrze zrodla -->
+            <resource>
+                <directory>src/main/clojure</directory>
+            </resource>
+            <resource>
+                <directory>src/test/clojure</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>com.gadawski.maven.plugins.cloverage</groupId>
+                <artifactId>cloverage-maven-plugin</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <configuration>
+                    <sourceDirectories>
+                        <sourceDirectory>src/main/clojure</sourceDirectory>
+                    </sourceDirectories>
+                    <testSourceDirectories>
+                        <testSourceDirectory>src/test/clojure</testSourceDirectory>
+                    </testSourceDirectories>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
