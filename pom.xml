@@ -27,18 +27,6 @@
     </dependencies>
 
     <build>
-        <resources>
-            <!-- brak ponizszej konfiguracji powoduje IAE exception poniewaz 
-                nie moga zostac odnalezione przekazane w parametrze zrodla -->
-            <resource>
-                <directory>src/main/clojure</directory>
-            </resource>
-            <resource>
-                <directory>src/test/clojure</directory>
-            </resource>
-        </resources>
-    </build>
-    <reporting>
         <plugins>
             <plugin>
                 <groupId>com.gadawski.maven.plugins.cloverage</groupId>
@@ -50,7 +38,17 @@
                 </configuration>
             </plugin>
         </plugins>
-    </reporting>
+        <resources>
+            <!-- brak ponizszej konfiguracji powoduje IAE exception poniewaz 
+                nie moga zostac odnalezione przekazane w parametrze zrodla -->
+            <resource>
+                <directory>src/main/clojure</directory>
+            </resource>
+            <resource>
+                <directory>src/test/clojure</directory>
+            </resource>
+        </resources>
+    </build>
     <properties>
         <source.directory>src/main/clojure</source.directory>
         <source.test.directory>src/test/clojure</source.test.directory>
