@@ -3,6 +3,10 @@
     :name lukasz
     :methods [#^{:static true} [aplusb [int int] int]]))
 
+;'(set! *print-level* true)
+;(set! *stack* false) ;; unable to resolve symbol: *stack* in this context
+;(set! *warn-on-reflection* true) ;; Can't change/establish root binding of: *warn-on-reflection* with set
+
 (defn aplusb
   "Calculates a+b"
   [a b & args]
